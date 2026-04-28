@@ -1,0 +1,10 @@
+{
+  "name": "adivinhao",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static football guessing game ready to deploy on Vercel.",
+  "scripts": {
+    "deploy": "vercel --prod",
+    "deploy:preview": "vercel"
+  }
+}
