@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Adivinhão</title>
+    <meta
+      name="description"
+      content="Guess the mystery football player from career stats, yes-or-no questions, and a single hint."
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="brand-lockup">
+          <p class="eyebrow" id="hero-kicker">⚽ Mystery football game</p>
+          <h1>Adivinhão</h1>
+          <p class="hero-subtitle">Do Fla da Gama Paulista</p>
+          <p class="creator-line">
+            Created by
+            <a
+              href="https://www.instagram.com/teacherromeroalves/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Teacher Romero Alves 📸
+            </a>
+          </p>
+          <p class="hero-copy" id="hero-copy">
+            Decode the player from four career stats, seven yes-or-no questions,
+            and one subtle hint.
+          </p>
+        </div>
+
+        <div class="hero-controls">
+          <div class="language-switch" aria-label="Language selector">
+            <button
+              id="lang-pt"
+              class="lang-button active"
+              type="button"
+              data-lang="pt-BR"
+            >
+              PT-BR
+            </button>
+            <button
+              id="lang-en"
+              class="lang-button"
+              type="button"
+              data-lang="en"
+            >
+              EN
+            </button>
+          </div>
+
+          <button id="new-game" class="button secondary" type="button">
+            Novo jogador
+          </button>
+        </div>
+      </header>
+
+      <main class="game-grid">
+        <section class="panel stats-panel">
+          <div class="panel-header">
+            <p class="panel-kicker" id="stats-kicker">📊 Perfil misterioso</p>
+            <h2 id="stats-title">Totais da carreira</h2>
+          </div>
+          <div id="stats-grid" class="stats-grid"></div>
+          <div class="rules">
+            <div class="rule-pill">
+              <span id="question-count">0</span>/<span id="question-limit">7</span>
+              <span id="questions-used-label">perguntas usadas</span>
+            </div>
+            <div class="rule-pill">
+              <span id="hint-label">Dica</span>:
+              <span id="hint-status">disponível</span>
+            </div>
+          </div>
+          <div class="action-row stats-action-row">
+            <button id="hint-button" class="button secondary" type="button">
+              💡 Usar dica
+            </button>
+          </div>
+          <div id="hint-box" class="hint-box hidden" aria-live="polite"></div>
+        </section>
+
+        <section class="panel interaction-panel">
+          <div class="panel-header">
+            <p class="panel-kicker" id="interaction-kicker">🕵️ Interrogue o mistério</p>
+            <h2 id="interaction-title">Sim ou não</h2>
+          </div>
+
+          <form id="question-form" class="stack" autocomplete="off">
+            <label class="field-label" for="question-input" id="question-label"
+              >Faça uma pergunta</label
+            >
+            <div class="input-row">
+              <input
+                id="question-input"
+                name="question"
+                type="text"
+                maxlength="160"
+                placeholder="Exemplo: Barcelona, careca, casado, camisa 10"
+              />
+              <button id="ask-button" class="button primary" type="submit">
+                Perguntar
+              </button>
+            </div>
+            <p class="help-text" id="question-help">
+              O sistema aceita perguntas completas ou curtas, como clubes, país,
+              posição, títulos, aparência, camisa, apelidos e vida pessoal.
+            </p>
+          </form>
+
+          <div id="feedback" class="feedback" aria-live="polite"></div>
+
+          <div class="history-block">
+            <div class="history-header">
+              <p class="panel-kicker" id="history-kicker">🧩 Rastro das perguntas</p>
+              <h3 id="history-title">Seu caminho até aqui</h3>
+            </div>
+            <ul id="history-list" class="history-list"></ul>
+          </div>
+        </section>
+
+        <section class="panel guess-panel">
+          <div class="panel-header">
+            <p class="panel-kicker" id="guess-kicker">🏁 Resposta final</p>
+            <h2 class="guess-heading" id="guess-title">Quem é?</h2>
+          </div>
+
+          <form id="guess-form" class="stack" autocomplete="off">
+            <label class="field-label" for="guess-input" id="guess-label"
+              >Nome do jogador</label
+            >
+            <div class="input-row">
+              <input
+                id="guess-input"
+                name="guess"
+                type="text"
+                maxlength="80"
+                placeholder="Digite o nome do jogador"
+              />
+              <button id="guess-button" class="button primary" type="submit">
+                🔥 Cravar
+              </button>
+            </div>
+          </form>
+
+          <div id="result-card" class="result-card hidden" aria-live="polite"></div>
+
+          <div class="answer-actions">
+            <button id="share-game" class="button ghost" type="button">
+              📣 Compartilhar resultado
+            </button>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./data.js"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
